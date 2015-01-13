@@ -13,10 +13,20 @@
   file: path=/etc/nginx/ssl state=directory owner=root group=root mode=0700
 
 - name: Create ssl server certificate
-  template: src=server.crt dest=/etc/nginx/ssl/server.crt owner=root group=root mode=0600
+  copy:
+    content: "{{ server_crt }}"
+    dest: "/etc/nginx/ssl/server.crt"
+    owner: root
+    group: root
+    mode: 0600
 
-- name: Create ssl server key
-  template: src=server.key dest=/etc/nginx/ssl/server.key owner=root group=root mode=0600
+- name: Create ssl server certificate
+  copy:
+    content: "{{ server_key }}"
+    dest: "/etc/nginx/ssl/server.key"
+    owner: root
+    group: root
+    mode: 0600
 
 - name: Ensure nginx service state
   service: name=nginx state=started

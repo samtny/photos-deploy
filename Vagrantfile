@@ -31,6 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       ansible.extra_vars = { ansible_ssh_user: "vagrant" }
       ansible.sudo = true;
+      ansible.vault_password_file = "~/.vault_pass.photos-deploy.txt";
     end
   end
 end
