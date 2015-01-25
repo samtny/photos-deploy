@@ -11,5 +11,8 @@
 - name: Install imagemagick
   apt: name=imagemagick state=present
 
+- name: Install ufraw-batch
+  apt: name=ufraw-batch state=present
+
 - name: Create /opt/photos/photos_process
   file: path=/opt/photos/photos_process state=directory owner=vagrant group=vagrant mode=2775
