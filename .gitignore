@@ -7,3 +7,5 @@ export
 # intellij
 .idea
 
+# bin
+bin

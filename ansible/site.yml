@@ -1,6 +1,8 @@
 - name: apply common configuration to all nodes
   hosts: all
   remote_user: root
+  vars_files:
+    - ../config.yml
 
   roles:
     - common
@@ -8,27 +10,35 @@
 - name: configure and deploy mongodb
   hosts: mongo
   remote_user: root
+  vars_files:
+    - ../config.yml
 
   roles:
     - mongo
 
-- name: configure and deploy api
+- name: configure and deploy photos api
   hosts: photos_api
   remote_user: root
+  vars_files:
+    - ../config.yml
 
   roles:
     - photos_api
 
-- name: configure and deploy process
+- name: configure and deploy photos process
   hosts: photos_process
   remote_user: root
+  vars_files:
+    - ../config.yml
 
   roles:
     - photos_process
 
-- name: configure and deploy web
+- name: configure and deploy photos web
   hosts: photos_web
   remote_user: root
+  vars_files:
+    - ../config.yml
 
   roles:
     - photos_web

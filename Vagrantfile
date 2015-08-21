@@ -1,6 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+require 'yaml'
+dir = File.dirname(File.expand_path(__FILE__))
+vconfig = YAML::load_file("#{dir}/config.yml")
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -9,9 +13,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.forward_agent = true
 
   config.vm.define "photos" do |photos|
-    photos.vm.hostname = "photos"
+    photos.vm.hostname = vconfig['vagrant_hostname']
 
-    photos.vm.network "private_network", ip: "192.168.35.10"
+    photos.vm.network "private_network", ip: vconfig['vagrant_ip']
  
     photos.vm.provider "virtualbox" do |vb|
       vb.customize ["modifyvm", :id, "--memory", "1024"]

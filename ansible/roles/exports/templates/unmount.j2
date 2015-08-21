@@ -1,0 +1,25 @@
+#!/bin/bash
+
+DIR_LOCAL=`dirname $0`/../export/photos
+
+DIST_OS=`uname -s | tr [:upper:] [:lower:] | tr -d [:blank:]`
+case "$DIST_OS" in
+    'sunos')
+        DIST_OS="solaris"
+        ;;
+    'hp-ux' | 'hp-ux64')
+        DIST_OS="hpux"
+        ;;
+    'darwin')
+        DIST_OS="macosx"
+        ;;
+    'unix_sv')
+        DIST_OS="unixware"
+        ;;
+esac
+
+if [ "$DIST_OS" = "macosx" ]; then
+  sudo umount -f -l $DIR_LOCAL
+else
+  sudo umount -f $DIR_LOCAL
+fi

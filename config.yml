@@ -1,0 +1,4 @@
+---
+vagrant_hostname: photos
+vagrant_ip: 193.169.34.10
+vagrant_cidr_block: 193.169.34.0/24
