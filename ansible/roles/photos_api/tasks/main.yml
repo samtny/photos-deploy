@@ -1,6 +1,10 @@
 ---
 - name: Create /opt/photos/photos_api
-  file: path=/opt/photos/photos_api state=directory owner=vagrant group=vagrant mode=2775
+  file: path=/opt/photos/photos_api state=directory owner=vagrant group=vagrant mode=0755
+
+- name: Clone photos api
+  git: repo=git@github.com:samtny/photos-api.git dest=/opt/photos/photos_api
+  sudo: no
 
 - name: Create /var/www/photos_api symlink
   file: src=/opt/photos/photos_api dest=/var/www/photos_api state=link owner=vagrant group=www-data

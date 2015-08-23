@@ -19,6 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  
     photos.vm.provider "virtualbox" do |vb|
       vb.customize ["modifyvm", :id, "--memory", "1024"]
+      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     end
 
     photos.vm.provision "shell", path: "scripts/bootstrap.sh"

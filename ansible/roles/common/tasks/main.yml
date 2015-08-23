@@ -4,3 +4,6 @@
 
 - name: Install curl
   apt: name=curl state=present
+
+- name: Install git
+  apt: name=git state=present
