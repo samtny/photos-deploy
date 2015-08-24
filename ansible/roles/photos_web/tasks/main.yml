@@ -1,6 +1,10 @@
 ---
 - name: Create /opt/photos/photos_web
-  file: path=/opt/photos/photos_web state=directory owner=vagrant group=vagrant mode=2775
+  file: path=/opt/photos/photos_web state=directory owner=vagrant group=vagrant mode=0755
+
+- name: Clone photos web
+  git: repo=git@github.com:samtny/photos-web.git dest=/opt/photos/photos_web
+  sudo: no
 
 - name: Create /var/www/photos_web symlink
   file: src=/opt/photos/photos_web dest=/var/www/photos_web state=link owner=vagrant group=www-data
