@@ -14,9 +14,9 @@
 - name: Install ufraw-batch
   apt: name=ufraw-batch state=present
 
-- name: Create /opt/photos/photos_process
-  file: path=/opt/photos/photos_process state=directory owner=vagrant group=vagrant mode=0755
+- name: Create /opt/photos_process
+  file: path=/opt/photos_process state=directory owner=vagrant group=vagrant mode=0755
 
 - name: Clone photos process
-  git: repo=git@github.com:samtny/photos-process.git dest=/opt/photos/photos_process
+  git: repo=git@github.com:samtny/photos-process.git dest=/opt/photos_process accept_hostkey=true
   sudo: no
