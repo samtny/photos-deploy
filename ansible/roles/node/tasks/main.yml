@@ -1,0 +1,14 @@
+---
+- name: Install nodejs dependencies
+  apt: name={{ item }} state=present
+  with_items:
+    - python-software-properties
+    - python
+    - g++
+    - make
+
+- name: Add nodejs apt repository
+  apt_repository: repo='ppa:chris-lea/node.js' update_cache=yes
+
+- name: Install nodejs
+  apt: name=nodejs state=present
