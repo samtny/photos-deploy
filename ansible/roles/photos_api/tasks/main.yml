@@ -27,6 +27,12 @@
 - name: Install photos api composer dependencies
   composer: command=install working_dir=/opt/photos_api
 
+- name: Create cloudfront.pem
+  copy: content="{{ cloudfront_private_key }}" dest=/opt/photos_api/cloudfront.pem owner=vagrant group=vagrant mode=0400
+
+- name: Create photos api config.php
+  template: src=config.php.j2 dest=/opt/photos_api/system/config.php owner=vagrant group=vagrant mode=0400
+
 - name: Create /var/www/photos_api symlink
   file: src=/opt/photos_api dest=/var/www/photos_api state=link owner=vagrant group=www-data
 

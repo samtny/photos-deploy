@@ -2,3 +2,18 @@
 vagrant_hostname: photos
 vagrant_ip: 193.169.34.10
 vagrant_cidr_block: 193.169.34.0/24
+
+ec2_iam_role: www-photos
+ec2_region: us-east-1
+
+mongo_host: 193.169.34.10
+mongo_db: www-photos
+
+resource_page: 1000
+resource_derivative_default: thumb/100x100
+
+folder_page: 50
+folder_sort: path
+
+cloudfront_url: https://d1tx6ygo14k7m6.cloudfront.net
+cloudfront_restrict_ip: true

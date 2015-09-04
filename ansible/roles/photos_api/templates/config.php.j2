@@ -1,0 +1,23 @@
+<?php
+
+define('AWS_ACCESS_KEY_ID', '{{ aws_access_key_id }}');
+define('AWS_SECRET_ACCESS_KEY', '{{ aws_secret_access_key }}');
+
+define('EC2_IAM_ROLE', '{{ ec2_iam_role }}');
+define('EC2_REGION', '{{ ec2_region }}');
+
+define('MONGO_URI', 'mongodb://{{ mongo_host }}/');
+define('MONGO_DB', '{{ mongo_db }}');
+
+define('RESOURCE_SORT', '_id');
+define('RESOURCE_PAGE', {{ resource_page }});
+define('RESOURCE_DERIVATIVE_DEFAULT', '{{ resource_derivative_default }}');
+
+define('FOLDER_PAGE', {{ folder_page }});
+define('FOLDER_SORT', '{{ folder_sort }}');
+
+define('CLOUDFRONT_URL', '{{ cloudfront_url }}');
+define('CLOUDFRONT_PRIVATE_KEY', '/opt/photos_api/cloudfront.pem');
+define('CLOUDFRONT_KEY_PAIR_ID', '{{ cloudfront_key_pair_id }}');
+
+define('CLOUDFRONT_RESTRICT_IP', {{ cloudfront_restrict_ip }});
