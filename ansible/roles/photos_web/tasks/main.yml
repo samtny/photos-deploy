@@ -17,13 +17,15 @@
   file: src=/etc/nginx/sites-available/photos_web dest=/etc/nginx/sites-enabled/photos_web state=link owner=root group=root mode=644
   notify: Reload nginx
 
+- name: Install photos_web gulp
+  command: npm install -g gulp chdir=/opt/photos_web creates=/usr/bin/gulp
+
 - name: Install photos_web npm packages
-  command: npm install chdir=/opt/photos_web
+  command: npm install chdir=/opt/photos_web creates=/opt/photos_web/node_modules/gulp/package.json
   become: yes
   become_user: vagrant
 
-- name: Install photos_web gulp
-  command: npm install -g gulp chdir=/opt/photos_web
-
 - name: Invoke photos_web gulp default task
-  command: gulp chdir=/opt/photos_web
+  command: gulp chdir=/opt/photos_web creates=/opt/photos_web/dist/css/style.css
+  become: yes
+  become_user: vagrant
