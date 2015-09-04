@@ -12,3 +12,6 @@ bin
 
 # credentials
 credentials.yml
+
+# tmp
+tmp

@@ -27,7 +27,13 @@
 - name: Install photos api composer dependencies
   composer: command=install working_dir=/opt/photos_api
 
-- name: Create cloudfront.pem
+- name: Create photos api server.crt
+  copy: content="{{ photos_api_ssl_certificate }}" dest=/opt/photos_api/ssl/server.crt owner=vagrant group=vagrant mode=0400
+
+- name: Create photos api server.key
+  copy: content="{{ photos_api_ssl_key }}" dest=/opt/photos_api/ssl/server.key owner=vagrant group=vagrant mode=0644
+
+- name: Create photos api cloudfront.pem
   copy: content="{{ cloudfront_private_key }}" dest=/opt/photos_api/cloudfront.pem owner=vagrant group=vagrant mode=0400
 
 - name: Create photos api config.php
